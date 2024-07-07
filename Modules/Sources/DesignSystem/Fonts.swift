@@ -4,7 +4,7 @@ public enum Fonts: String {
     
     case ibmPlexSerifBold = "IBMPlexSerif-Bold"
     case iBMPlexSansRegular = "IBMPlexSans-Regular"
-    
+    case iBMPlexSansSemiBold = "IBMPlexSans-SemiBold"
 }
 
 public extension UIFont {
@@ -14,5 +14,13 @@ public extension UIFont {
     
     static var subtitle: UIFont {
         UIFont(name: Fonts.iBMPlexSansRegular.rawValue, size: 17)!
+    }
+    
+    static var textField: UIFont {
+        UIFont(name: Fonts.iBMPlexSansRegular.rawValue, size: 17)!
+    }
+    
+    static var button: UIFont {
+        UIFont(name: Fonts.iBMPlexSansSemiBold.rawValue, size: 17)!
     }
 }

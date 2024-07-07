@@ -14,6 +14,7 @@
 		446ACD7B2C387D82009F6426 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446ACD7A2C387D82009F6426 /* SceneDelegate.swift */; };
 		446ACD822C387D87009F6426 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 446ACD812C387D87009F6426 /* Assets.xcassets */; };
 		446ACD852C387D87009F6426 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 446ACD842C387D87009F6426 /* Base */; };
+		44C441FD2C3B30AD008ED9F8 /* IBMPlexSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44C441FC2C3B30AD008ED9F8 /* IBMPlexSans-SemiBold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		446ACD842C387D87009F6426 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		446ACD862C387D87009F6426 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		446ACD8D2C387EE7009F6426 /* Modules */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Modules; sourceTree = "<group>"; };
+		44C441FC2C3B30AD008ED9F8 /* IBMPlexSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-SemiBold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 		44416C362C3AEA6900BCF49B /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				44C441FC2C3B30AD008ED9F8 /* IBMPlexSans-SemiBold.ttf */,
 				44416C372C3AEC1E00BCF49B /* IBMPlexSerif-Bold.ttf */,
 				444D319B2C3AFB9C00FB5188 /* IBMPlexSans-Regular.ttf */,
 			);
@@ -158,6 +161,7 @@
 			files = (
 				444D319C2C3AFB9D00FB5188 /* IBMPlexSans-Regular.ttf in Resources */,
 				446ACD822C387D87009F6426 /* Assets.xcassets in Resources */,
+				44C441FD2C3B30AD008ED9F8 /* IBMPlexSans-SemiBold.ttf in Resources */,
 				44416C382C3AEC1E00BCF49B /* IBMPlexSerif-Bold.ttf in Resources */,
 				446ACD852C387D87009F6426 /* Base in Resources */,
 			);

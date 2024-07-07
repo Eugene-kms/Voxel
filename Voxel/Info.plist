@@ -23,6 +23,7 @@
 	<array>
 		<string>IBMPlexSerif-Bold.ttf</string>
 		<string>IBMPlexSans-Regular.ttf</string>
+		<string>IBMPlexSans-SemiBold.ttf</string>
 	</array>
 </dict>
 </plist>
