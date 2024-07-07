@@ -1,5 +1,11 @@
 import UIKit
 import SnapKit
+import DesignSystem
+
+enum PhoneNumberStrings: String {
+    case title = "Enter your phone number"
+    case subtitle = "What a phone number can people use to reach you?"
+}
 
 public class PhoneNumberViewController: UIViewController {
     
@@ -17,6 +23,8 @@ public class PhoneNumberViewController: UIViewController {
         
         setupStackView()
         setupIcon()
+        setupTitle()
+        setupSubtitle()
     }
     
     private func setupStackView() {
@@ -45,6 +53,34 @@ public class PhoneNumberViewController: UIViewController {
         icon.snp.makeConstraints { make in
             make.size.equalTo(80)
         }
+    }
+    
+    private func setupTitle() {
+        let title = UILabel()
+        let attributedString = NSAttributedString(
+            string: PhoneNumberStrings.title.rawValue,
+            attributes: [.kern: 0.37])
+        
+        title.attributedText = attributedString
+        title.font = .title
+        title.numberOfLines = 0
+        title.textAlignment = .center
+        
+        stackView.addArrangedSubview(title)
+    }
+    
+    private func setupSubtitle() {
+        let subtitle = UILabel()
+        let attributedString = NSAttributedString(
+            string: PhoneNumberStrings.subtitle.rawValue,
+            attributes: [.kern: -0.41])
+        
+        subtitle.attributedText = attributedString
+        subtitle.font = .subtitle
+        subtitle.numberOfLines = 0
+        subtitle.textAlignment = .center
+        
+        stackView.addArrangedSubview(subtitle)
     }
     
 }

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		44416C342C3AAF5900BCF49B /* VoxelLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 44416C332C3AAF5900BCF49B /* VoxelLogin */; };
+		44416C382C3AEC1E00BCF49B /* IBMPlexSerif-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44416C372C3AEC1E00BCF49B /* IBMPlexSerif-Bold.ttf */; };
+		444D319C2C3AFB9D00FB5188 /* IBMPlexSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 444D319B2C3AFB9C00FB5188 /* IBMPlexSans-Regular.ttf */; };
 		446ACD792C387D82009F6426 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446ACD782C387D82009F6426 /* AppDelegate.swift */; };
 		446ACD7B2C387D82009F6426 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446ACD7A2C387D82009F6426 /* SceneDelegate.swift */; };
 		446ACD822C387D87009F6426 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 446ACD812C387D87009F6426 /* Assets.xcassets */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		44416C372C3AEC1E00BCF49B /* IBMPlexSerif-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSerif-Bold.ttf"; sourceTree = "<group>"; };
+		444D319B2C3AFB9C00FB5188 /* IBMPlexSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Regular.ttf"; sourceTree = "<group>"; };
 		446ACD752C387D82009F6426 /* Voxel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Voxel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		446ACD782C387D82009F6426 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		446ACD7A2C387D82009F6426 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +47,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		44416C352C3AE91E00BCF49B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				44416C362C3AEA6900BCF49B /* Fonts */,
+				446ACD812C387D87009F6426 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		44416C362C3AEA6900BCF49B /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				44416C372C3AEC1E00BCF49B /* IBMPlexSerif-Bold.ttf */,
+				444D319B2C3AFB9C00FB5188 /* IBMPlexSans-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		446ACD6C2C387D82009F6426 = {
 			isa = PBXGroup;
 			children = (
@@ -64,9 +86,9 @@
 		446ACD772C387D82009F6426 /* Voxel */ = {
 			isa = PBXGroup;
 			children = (
+				44416C352C3AE91E00BCF49B /* Resources */,
 				446ACD782C387D82009F6426 /* AppDelegate.swift */,
 				446ACD7A2C387D82009F6426 /* SceneDelegate.swift */,
-				446ACD812C387D87009F6426 /* Assets.xcassets */,
 				446ACD832C387D87009F6426 /* LaunchScreen.storyboard */,
 				446ACD862C387D87009F6426 /* Info.plist */,
 			);
@@ -134,7 +156,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				444D319C2C3AFB9D00FB5188 /* IBMPlexSans-Regular.ttf in Resources */,
 				446ACD822C387D87009F6426 /* Assets.xcassets in Resources */,
+				44416C382C3AEC1E00BCF49B /* IBMPlexSerif-Bold.ttf in Resources */,
 				446ACD852C387D87009F6426 /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
