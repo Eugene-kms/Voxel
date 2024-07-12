@@ -1,12 +1,6 @@
-//
-//  SceneDelegate.swift
-//  Voxel
-//
-//  Created by Eugene on 05.07.2024.
-//
-
 import UIKit
 import VoxelLogin
+import DesignSystem
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -17,10 +11,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+        
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         let phoneNumberController = PhoneNumberViewController()
         let navigationController = UINavigationController(rootViewController: phoneNumberController)
+        
+        navigationController.styleVoxel()
+        
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
         
@@ -57,3 +55,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 }
 
+extension UINavigationController {
+    func styleVoxel() {
+        navigationBar.tintColor = .accent
+        
+        let imgBack = UIImage.chevronLeft
+
+        navigationBar.backIndicatorImage = imgBack
+        navigationBar.backIndicatorTransitionMaskImage = imgBack
+        
+        navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+    }
+}

@@ -8,4 +8,3 @@ public extension UIFont {
         return paragraphStyle
     }
 }
-
