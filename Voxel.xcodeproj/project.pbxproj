@@ -16,6 +16,8 @@
 		446ACD852C387D87009F6426 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 446ACD842C387D87009F6426 /* Base */; };
 		44C441FD2C3B30AD008ED9F8 /* IBMPlexSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44C441FC2C3B30AD008ED9F8 /* IBMPlexSans-SemiBold.ttf */; };
 		44C442152C419DB0008ED9F8 /* DesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 44C442142C419DB0008ED9F8 /* DesignSystem */; };
+		44C4421B2C443851008ED9F8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 44C4421A2C443851008ED9F8 /* GoogleService-Info.plist */; };
+		44C442202C443EE2008ED9F8 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 44C4421F2C443EE2008ED9F8 /* FirebaseAuth */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,7 @@
 		446ACD862C387D87009F6426 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		446ACD8D2C387EE7009F6426 /* Modules */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Modules; sourceTree = "<group>"; };
 		44C441FC2C3B30AD008ED9F8 /* IBMPlexSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		44C4421A2C443851008ED9F8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +40,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				44416C342C3AAF5900BCF49B /* VoxelLogin in Frameworks */,
+				44C442202C443EE2008ED9F8 /* FirebaseAuth in Frameworks */,
 				44C442152C419DB0008ED9F8 /* DesignSystem in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -95,6 +99,7 @@
 				446ACD782C387D82009F6426 /* AppDelegate.swift */,
 				446ACD7A2C387D82009F6426 /* SceneDelegate.swift */,
 				446ACD832C387D87009F6426 /* LaunchScreen.storyboard */,
+				44C4421A2C443851008ED9F8 /* GoogleService-Info.plist */,
 				446ACD862C387D87009F6426 /* Info.plist */,
 			);
 			path = Voxel;
@@ -119,6 +124,7 @@
 			packageProductDependencies = (
 				44416C332C3AAF5900BCF49B /* VoxelLogin */,
 				44C442142C419DB0008ED9F8 /* DesignSystem */,
+				44C4421F2C443EE2008ED9F8 /* FirebaseAuth */,
 			);
 			productName = Voxel;
 			productReference = 446ACD752C387D82009F6426 /* Voxel.app */;
@@ -148,6 +154,9 @@
 				Base,
 			);
 			mainGroup = 446ACD6C2C387D82009F6426;
+			packageReferences = (
+				44C4421C2C443C84008ED9F8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 446ACD762C387D82009F6426 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -167,6 +176,7 @@
 				44C441FD2C3B30AD008ED9F8 /* IBMPlexSans-SemiBold.ttf in Resources */,
 				44416C382C3AEC1E00BCF49B /* IBMPlexSerif-Bold.ttf in Resources */,
 				446ACD852C387D87009F6426 /* Base in Resources */,
+				44C4421B2C443851008ED9F8 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,8 +336,10 @@
 				INFOPLIST_FILE = Voxel/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -352,8 +364,10 @@
 				INFOPLIST_FILE = Voxel/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -390,6 +404,17 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		44C4421C2C443C84008ED9F8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = exactVersion;
+				version = 10.29.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		44416C332C3AAF5900BCF49B /* VoxelLogin */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -398,6 +423,11 @@
 		44C442142C419DB0008ED9F8 /* DesignSystem */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = DesignSystem;
+		};
+		44C4421F2C443EE2008ED9F8 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 44C4421C2C443C84008ED9F8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

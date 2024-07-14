@@ -1,4 +1,5 @@
 import UIKit
+import VoxelAuthentication
 import VoxelLogin
 import DesignSystem
 
@@ -14,7 +15,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
+        
+        let authService = AuthServiceLive()
+        let viewModel = PhoneNumberViewModel(authService: authService)
+        
         let phoneNumberController = PhoneNumberViewController()
+        phoneNumberController.viewModel = viewModel
         let navigationController = UINavigationController(rootViewController: phoneNumberController)
         
         navigationController.styleVoxel()
