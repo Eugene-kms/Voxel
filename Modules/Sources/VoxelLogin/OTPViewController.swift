@@ -1,6 +1,7 @@
 import UIKit
-import VoxelAuthentication
 import SnapKit
+import DesignSystem
+import VoxelAuthentication
 
 enum OTPScreenStrings: String {
     case title = "Enter the code"
@@ -251,17 +252,29 @@ extension OTPViewController {
     }
     
     @objc func didTapContinue() {
+        view.endEditing(true)
         self.setContinueButtonDisabled()
         
         let digits = textFields.map { $0.text ?? "" }
+        
+        let loadingVC = LoadingViewController()
+        loadingVC.modalPresentationStyle = .overCurrentContext
+        self.present(loadingVC, animated: true)
         
         Task { [weak self] in
             do {
                 try await self?.viewModel.verifyOTP(with: digits)
                 
+                loadingVC.dismiss(animated: true) { [weak self] in
+                    let vc = UIViewController()
+                    vc.modalPresentationStyle = .fullScreen
+                    self?.navigationController?.setViewControllers([vc], animated: true)
+                }
             } catch {
-                self?.showError(error.localizedDescription)
-                self?.setContinueButtonEnabled()
+                loadingVC.dismiss(animated: true) { [weak self] in
+                    self?.showError(error.localizedDescription)
+                    self?.setContinueButtonEnabled()
+                }
             }
         }
     }
