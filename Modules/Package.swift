@@ -31,7 +31,9 @@ let package = Package(
         .target(
             name: "DesignSystem",
             dependencies: [
-                .product(name: "Lottie", package: "lottie-spm"),
+                .product(
+                    name: "Lottie",
+                    package: "lottie-spm"),
                 "SnapKit"
             ],
             resources: [

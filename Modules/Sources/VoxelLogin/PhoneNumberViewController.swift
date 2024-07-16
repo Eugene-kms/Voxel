@@ -188,7 +188,7 @@ extension PhoneNumberViewController {
 
 extension PhoneNumberViewController {
     
-    @objc func didTapContinue() async {
+    @objc func didTapContinue() {
         
         guard textField.isValidNumber, let phoneNumber = textField.text else { return }
         
