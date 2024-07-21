@@ -13,11 +13,18 @@ public struct User {
 }
 
 public protocol AuthService {
+    
+    var isAuthenticated: Bool { get }
+    
     func requestOTP(forPhoneNumber phoneNumber: String) async throws
     func authenticate(withOTP otp: String) async throws -> User
 }
 
 public class AuthServiceLive: AuthService  {
+    
+    public var isAuthenticated: Bool {
+        Auth.auth().currentUser != nil
+    }
     
     public init() { }
     
