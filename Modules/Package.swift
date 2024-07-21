@@ -13,6 +13,9 @@ let package = Package(
             .library(
                 name: "VoxelAuthentication",
                 targets: ["VoxelAuthentication"]),
+            .library(
+                name: "VoxelCore",
+                targets: ["VoxelCore"]),
         
             .library(
                 name: "VoxelLogin",
@@ -27,7 +30,6 @@ let package = Package(
     ],
     
     targets: [
-        
         .target(
             name: "DesignSystem",
             dependencies: [
@@ -47,11 +49,14 @@ let package = Package(
                     name: "FirebaseAuth",
                     package: "firebase-ios-sdk")]),
         
+        .target(name: "VoxelCore"),
+        
         .target(
             name: "VoxelLogin",
             dependencies: [
                 "DesignSystem",
                 "VoxelAuthentication",
+                "VoxelCore",
                 "SnapKit",
                 "PhoneNumberKit"],
             resources: [
