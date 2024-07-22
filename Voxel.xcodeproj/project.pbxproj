@@ -12,6 +12,7 @@
 		4442B6A32C4C15F50022C0CB /* VoxelCore in Frameworks */ = {isa = PBXBuildFile; productRef = 4442B6A22C4C15F50022C0CB /* VoxelCore */; };
 		4442B6A72C4D84DA0022C0CB /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4442B6A62C4D84DA0022C0CB /* TabBarController.swift */; };
 		4442B6A92C4D8CA80022C0CB /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4442B6A82C4D8CA80022C0CB /* Tab.swift */; };
+		4442B6B02C4E87950022C0CB /* VoxelSettings in Frameworks */ = {isa = PBXBuildFile; productRef = 4442B6AF2C4E87950022C0CB /* VoxelSettings */; };
 		444D319C2C3AFB9D00FB5188 /* IBMPlexSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 444D319B2C3AFB9C00FB5188 /* IBMPlexSans-Regular.ttf */; };
 		446ACD792C387D82009F6426 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446ACD782C387D82009F6426 /* AppDelegate.swift */; };
 		446ACD7B2C387D82009F6426 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446ACD7A2C387D82009F6426 /* SceneDelegate.swift */; };
@@ -45,6 +46,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4442B6A32C4C15F50022C0CB /* VoxelCore in Frameworks */,
+				4442B6B02C4E87950022C0CB /* VoxelSettings in Frameworks */,
 				44416C342C3AAF5900BCF49B /* VoxelLogin in Frameworks */,
 				44C442202C443EE2008ED9F8 /* FirebaseAuth in Frameworks */,
 				44C442152C419DB0008ED9F8 /* DesignSystem in Frameworks */,
@@ -80,6 +82,15 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		4442B6AE2C4E875E0022C0CB /* Tab */ = {
+			isa = PBXGroup;
+			children = (
+				4442B6A62C4D84DA0022C0CB /* TabBarController.swift */,
+				4442B6A82C4D8CA80022C0CB /* Tab.swift */,
+			);
+			path = Tab;
+			sourceTree = "<group>";
+		};
 		446ACD6C2C387D82009F6426 = {
 			isa = PBXGroup;
 			children = (
@@ -101,14 +112,13 @@
 		446ACD772C387D82009F6426 /* Voxel */ = {
 			isa = PBXGroup;
 			children = (
+				4442B6AE2C4E875E0022C0CB /* Tab */,
 				44416C352C3AE91E00BCF49B /* Resources */,
 				446ACD782C387D82009F6426 /* AppDelegate.swift */,
 				446ACD7A2C387D82009F6426 /* SceneDelegate.swift */,
 				446ACD832C387D87009F6426 /* LaunchScreen.storyboard */,
 				44C4421A2C443851008ED9F8 /* GoogleService-Info.plist */,
 				446ACD862C387D87009F6426 /* Info.plist */,
-				4442B6A62C4D84DA0022C0CB /* TabBarController.swift */,
-				4442B6A82C4D8CA80022C0CB /* Tab.swift */,
 			);
 			path = Voxel;
 			sourceTree = "<group>";
@@ -134,6 +144,7 @@
 				44C442142C419DB0008ED9F8 /* DesignSystem */,
 				44C4421F2C443EE2008ED9F8 /* FirebaseAuth */,
 				4442B6A22C4C15F50022C0CB /* VoxelCore */,
+				4442B6AF2C4E87950022C0CB /* VoxelSettings */,
 			);
 			productName = Voxel;
 			productReference = 446ACD752C387D82009F6426 /* Voxel.app */;
@@ -434,6 +445,10 @@
 		4442B6A22C4C15F50022C0CB /* VoxelCore */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = VoxelCore;
+		};
+		4442B6AF2C4E87950022C0CB /* VoxelSettings */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = VoxelSettings;
 		};
 		44C442142C419DB0008ED9F8 /* DesignSystem */ = {
 			isa = XCSwiftPackageProductDependency;
