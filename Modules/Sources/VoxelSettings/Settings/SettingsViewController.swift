@@ -33,6 +33,7 @@ extension SettingsViewController {
     private func setupNavigationTitle() {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.largeTitleTextAttributes = [.font: UIFont.title]
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
     }
     
     private func setupTableView() {

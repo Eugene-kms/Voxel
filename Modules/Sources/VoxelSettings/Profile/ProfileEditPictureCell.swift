@@ -6,6 +6,8 @@ class ProfileEditPictureCell: UITableViewCell {
     private weak var profileImageView: UIImageView!
     private weak var setNewAvatarButton: UIButton!
     
+    var didTap: (()->())?
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         commonInit()
@@ -25,6 +27,7 @@ class ProfileEditPictureCell: UITableViewCell {
 extension ProfileEditPictureCell {
     
     private func setupUI() {
+        selectionStyle = .none
         backgroundColor = .clear
         
         setupProfileImageView()
@@ -68,6 +71,6 @@ extension ProfileEditPictureCell {
     }
     
     @objc private func didTapButton() {
-        
+        didTap?()
     }
 }
