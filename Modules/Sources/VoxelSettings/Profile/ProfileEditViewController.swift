@@ -101,11 +101,13 @@ extension ProfileEditViewController {
         
         view.endEditing(true)
         
-        do {
-            try viewModel.save()
-            navigationController?.popViewController(animated: true)
-        } catch {
-            showError(error.localizedDescription)
+        Task {
+            do {
+                try await viewModel.save()
+                navigationController?.popViewController(animated: true)
+            } catch {
+                showError(error.localizedDescription)
+            }
         }
     }
     
@@ -145,7 +147,11 @@ extension ProfileEditViewController: UITableViewDataSource {
         case .profilePicture:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ProfileEditPictureCell.identifier, for: indexPath) as? ProfileEditPictureCell else { return UITableViewCell() }
             
-            cell.configure(with: viewModel.selectedImage)
+            if let selectedImage = viewModel.selectedImage {
+                cell.configure(with: selectedImage)
+            } else if let url = viewModel.profilePictureUrl {
+                cell.configure(with: url)
+            }
             
             cell.didTap = { [weak self] in
                 self?.didTapProfilePicture()
@@ -257,6 +263,7 @@ extension ProfileEditViewController: UIImagePickerControllerDelegate, UINavigati
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.sourceType = sourceType
+        imagePicker.allowsEditing = true
         present(imagePicker, animated: true)
     }
     
@@ -265,7 +272,7 @@ extension ProfileEditViewController: UIImagePickerControllerDelegate, UINavigati
     }
     
     public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let selectedImage = info[.originalImage] as? UIImage {
+        if let selectedImage = info[.editedImage] as? UIImage {
             viewModel.selectedImage = selectedImage
             
             tableView.reloadRows(

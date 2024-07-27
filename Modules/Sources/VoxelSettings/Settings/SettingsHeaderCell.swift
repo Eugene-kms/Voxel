@@ -1,6 +1,7 @@
 import UIKit
 import SnapKit
 import DesignSystem
+import SDWebImage
 
 class SettingsHeaderCell: UITableViewCell {
     
@@ -21,7 +22,7 @@ class SettingsHeaderCell: UITableViewCell {
     }
     
     func configure(with viewModel: SettingsViewModel.Header) {
-        profileImageView.image = viewModel.image
+        profileImageView.sd_setImage(with: viewModel.imageUrl)
         nameLable.text = viewModel.name
         descriptionLable.text = viewModel.description
     }
@@ -82,6 +83,9 @@ extension SettingsHeaderCell {
     
     private func setupImageView() {
         let imageView = UIImageView()
+        imageView.image = UIImage(resource: .avatar)
+        imageView.layer.cornerRadius = 28
+        imageView.layer.masksToBounds = true
         stackView.addArrangedSubview(imageView)
         
         imageView.snp.makeConstraints { make in
