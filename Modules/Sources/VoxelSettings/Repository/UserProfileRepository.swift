@@ -63,7 +63,7 @@ public class UserProfileRepositoryLive: UserProfileRepository {
             throw UserProfileRepositoryError.notAuthenticated
         }
         
-        let snapshot = try await reference.child("user").child(user.uid).getData()
+        let snapshot = try await reference.child("users").child(user.uid).getData()
         let profile = try snapshot.data(as: UserProfile.self)
         
         self.profile = profile
