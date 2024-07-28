@@ -54,6 +54,7 @@ class TabBarController: UITabBarController {
             userProfileRepository: userRepository
         )
         let viewModel = SettingsViewModel(
+            authService: authService,
             userRepository: userRepository,
             profilePictureRepository: profilePictureRepository
         )

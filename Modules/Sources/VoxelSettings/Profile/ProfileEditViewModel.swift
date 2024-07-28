@@ -1,4 +1,5 @@
 import UIKit
+import VoxelCore
 import VoxelAuthentication
 
 public final class ProfileEditViewModel {
@@ -8,10 +9,12 @@ public final class ProfileEditViewModel {
     var description: String = ""
     var profilePictureUrl: URL? = nil
     
+    private let authService: AuthService
     private let userRepository: UserProfileRepository
     private let profilePictureRepository: ProfilePictureRepository
     
-    init(userRepository: UserProfileRepository, profilePictureRepository: ProfilePictureRepository) {
+    init(authService: AuthService, userRepository: UserProfileRepository, profilePictureRepository: ProfilePictureRepository) {
+        self.authService = authService
         self.userRepository = userRepository
         self.profilePictureRepository = profilePictureRepository
         
@@ -34,5 +37,10 @@ public final class ProfileEditViewModel {
         if let selectedImage {
             try await profilePictureRepository.upload(selectedImage)
         }
+    }
+    
+    func logout() throws {
+        try authService.logout()
+        NotificationCenter.default.post(.didLogout)
     }
 }

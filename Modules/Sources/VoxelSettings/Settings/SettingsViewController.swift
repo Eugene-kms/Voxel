@@ -88,7 +88,11 @@ extension SettingsViewController: UITableViewDelegate {
     }
     
     private func presentProfileEdit() {
-        let viewModel = ProfileEditViewModel(userRepository: viewModel.userRepository, profilePictureRepository: viewModel.profilePictureRepository)
+        let viewModel = ProfileEditViewModel(
+            authService: viewModel.authService,
+            userRepository: viewModel.userRepository,
+            profilePictureRepository: viewModel.profilePictureRepository
+        )
         let controller = ProfileEditViewController()
         controller.viewModel = viewModel
         navigationController?.pushViewController(controller, animated: true)
