@@ -239,7 +239,6 @@ extension ProfileEditViewController: UITableViewDelegate {
         } catch {
             showError(error.localizedDescription)
         }
-        
     }
 }
 

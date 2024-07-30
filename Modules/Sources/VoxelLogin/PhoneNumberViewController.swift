@@ -11,18 +11,6 @@ enum PhoneNumberStrings: String {
     case continueButton = "Continue"
 }
 
-public final class PhoneNumberViewModel {
-    var authService: AuthService
-    
-    public init(authService: AuthService) {
-        self.authService = authService
-    }
-    
-    public func requestOTP(with phoneNumber: String) async throws {
-        try await authService.requestOTP(forPhoneNumber: phoneNumber)
-    }
-}
-
 public final class PhoneNumberViewController: UIViewController {
     
     private weak var stackView: UIStackView!
@@ -206,7 +194,7 @@ extension PhoneNumberViewController {
     
     private func presentOTP() {
         let viewController = OTPViewController()
-        viewController.viewModel = OTPViewModel(authService: viewModel.authService)
+        viewController.viewModel = OTPViewModel(container: viewModel.container)
         viewController.phoneNumber = textField.text ?? ""
         
         navigationController?.pushViewController(viewController, animated: true)

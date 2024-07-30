@@ -22,7 +22,23 @@
 		44C441FD2C3B30AD008ED9F8 /* IBMPlexSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44C441FC2C3B30AD008ED9F8 /* IBMPlexSans-SemiBold.ttf */; };
 		44C442152C419DB0008ED9F8 /* DesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 44C442142C419DB0008ED9F8 /* DesignSystem */; };
 		44C442202C443EE2008ED9F8 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 44C4421F2C443EE2008ED9F8 /* FirebaseAuth */; };
+		44FEC4002C58F93B002B9785 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FEC3FF2C58F93B002B9785 /* DIContainer.swift */; };
+		44FEC4032C5915D2002B9785 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 44FEC4022C5915D2002B9785 /* Swinject */; };
+		44FEC4072C59164B002B9785 /* AppAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FEC4062C59164B002B9785 /* AppAssembly.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		44FEC4092C597DB7002B9785 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		44416C372C3AEC1E00BCF49B /* IBMPlexSerif-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSerif-Bold.ttf"; sourceTree = "<group>"; };
@@ -38,6 +54,8 @@
 		446ACD862C387D87009F6426 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		446ACD8D2C387EE7009F6426 /* Modules */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Modules; sourceTree = "<group>"; };
 		44C441FC2C3B30AD008ED9F8 /* IBMPlexSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		44FEC3FF2C58F93B002B9785 /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
+		44FEC4062C59164B002B9785 /* AppAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAssembly.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +68,7 @@
 				44416C342C3AAF5900BCF49B /* VoxelLogin in Frameworks */,
 				44C442202C443EE2008ED9F8 /* FirebaseAuth in Frameworks */,
 				44C442152C419DB0008ED9F8 /* DesignSystem in Frameworks */,
+				44FEC4032C5915D2002B9785 /* Swinject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,10 +134,12 @@
 				4442B6AE2C4E875E0022C0CB /* Tab */,
 				44416C352C3AE91E00BCF49B /* Resources */,
 				446ACD782C387D82009F6426 /* AppDelegate.swift */,
+				44FEC3FF2C58F93B002B9785 /* DIContainer.swift */,
 				446ACD7A2C387D82009F6426 /* SceneDelegate.swift */,
 				446ACD832C387D87009F6426 /* LaunchScreen.storyboard */,
 				444B18222C551EBD00962C2D /* GoogleService-Info.plist */,
 				446ACD862C387D87009F6426 /* Info.plist */,
+				44FEC4062C59164B002B9785 /* AppAssembly.swift */,
 			);
 			path = Voxel;
 			sourceTree = "<group>";
@@ -133,6 +154,7 @@
 				446ACD712C387D82009F6426 /* Sources */,
 				446ACD722C387D82009F6426 /* Frameworks */,
 				446ACD732C387D82009F6426 /* Resources */,
+				44FEC4092C597DB7002B9785 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -145,6 +167,7 @@
 				44C4421F2C443EE2008ED9F8 /* FirebaseAuth */,
 				4442B6A22C4C15F50022C0CB /* VoxelCore */,
 				4442B6AF2C4E87950022C0CB /* VoxelSettings */,
+				44FEC4022C5915D2002B9785 /* Swinject */,
 			);
 			productName = Voxel;
 			productReference = 446ACD752C387D82009F6426 /* Voxel.app */;
@@ -176,6 +199,7 @@
 			mainGroup = 446ACD6C2C387D82009F6426;
 			packageReferences = (
 				44C4421C2C443C84008ED9F8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				44FEC4012C5915D2002B9785 /* XCRemoteSwiftPackageReference "Swinject" */,
 			);
 			productRefGroup = 446ACD762C387D82009F6426 /* Products */;
 			projectDirPath = "";
@@ -209,6 +233,8 @@
 			files = (
 				4442B6A72C4D84DA0022C0CB /* TabBarController.swift in Sources */,
 				446ACD792C387D82009F6426 /* AppDelegate.swift in Sources */,
+				44FEC4002C58F93B002B9785 /* DIContainer.swift in Sources */,
+				44FEC4072C59164B002B9785 /* AppAssembly.swift in Sources */,
 				446ACD7B2C387D82009F6426 /* SceneDelegate.swift in Sources */,
 				4442B6A92C4D8CA80022C0CB /* Tab.swift in Sources */,
 			);
@@ -435,6 +461,14 @@
 				version = 10.29.0;
 			};
 		};
+		44FEC4012C5915D2002B9785 /* XCRemoteSwiftPackageReference "Swinject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/Swinject.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.9.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -458,6 +492,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 44C4421C2C443C84008ED9F8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAuth;
+		};
+		44FEC4022C5915D2002B9785 /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 44FEC4012C5915D2002B9785 /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
