@@ -10,14 +10,18 @@ public final class ProfileEditViewModel {
     var description: String = ""
     var profilePictureUrl: URL? = nil
     
-    let container: Container
+    let coordinator: ProfileEditCoordinator
     
-    var authService: AuthService { container.resolve(AuthService.self)! }
-    var userRepository: UserProfileRepository { container.resolve(UserProfileRepository.self)! }
-    var profilePictureRepository: ProfilePictureRepository { container.resolve(ProfilePictureRepository.self)! }
+    private let container: Container
     
-    init(container: Container) {
+    private var authService: AuthService { container.resolve(AuthService.self)! }
+    private var userRepository: UserProfileRepository { container.resolve(UserProfileRepository.self)! }
+    private var profilePictureRepository: ProfilePictureRepository { container.resolve(ProfilePictureRepository.self)! }
+    
+    init(container: Container,
+         coordinator: ProfileEditCoordinator) {
         self.container = container
+        self.coordinator = coordinator
         
         if let profile = userRepository.profile {
             fullName = profile.fullName
@@ -38,6 +42,8 @@ public final class ProfileEditViewModel {
         if let selectedImage {
             try await profilePictureRepository.upload(selectedImage)
         }
+        
+        coordinator.dismiss()
     }
     
     func logout() throws {

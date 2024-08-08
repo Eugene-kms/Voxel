@@ -184,19 +184,9 @@ extension PhoneNumberViewController {
         Task { [weak self] in
             do {
                 try await self?.viewModel.requestOTP(with: phoneNumber)
-                
-                self?.presentOTP()
             } catch {
                 self?.showError(error.localizedDescription)
             }
         }
-    }
-    
-    private func presentOTP() {
-        let viewController = OTPViewController()
-        viewController.viewModel = OTPViewModel(container: viewModel.container)
-        viewController.phoneNumber = textField.text ?? ""
-        
-        navigationController?.pushViewController(viewController, animated: true)
     }
 }

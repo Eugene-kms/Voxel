@@ -14,17 +14,27 @@ public final class SettingsViewModel {
     
     var didUpdateHeader: (() -> ())?
     
-    let container: Container
+    private let coordinator: SettingsCoordinator
     
-    var userRepository: UserProfileRepository { container.resolve(UserProfileRepository.self)! }
+    private let container: Container
     
-    public init(container: Container) {
+    private var userRepository: UserProfileRepository { container.resolve(UserProfileRepository.self)! }
+    
+    public init(
+        container: Container,
+        coordinator: SettingsCoordinator
+    ) {
         self.container = container
+        self.coordinator = coordinator
         
         header = Header(
             imageUrl: nil,
             name: "~",
             description: "No description")
+    }
+    
+    func presentProfileEdit() {
+        coordinator.presentProfileEdit()
     }
     
     func fetchUserProfile() {
