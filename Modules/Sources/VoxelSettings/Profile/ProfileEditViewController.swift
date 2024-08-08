@@ -82,6 +82,8 @@ extension ProfileEditViewController {
     }
 }
 
+// MARK: SetupUI
+
 extension ProfileEditViewController {
     private func setupUI() {
         view.backgroundColor = .background

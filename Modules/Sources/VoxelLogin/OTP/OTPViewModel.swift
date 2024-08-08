@@ -9,9 +9,11 @@ enum OTPViewModelError: Error {
 public final class OTPViewModel {
     
     private var authService: AuthService
+    let phoneNumber: String
     
-    init(container: Container) {
+    init(container: Container, phoneNumber: String) {
         self.authService = container.resolve(AuthService.self)!
+        self.phoneNumber = phoneNumber
     }
     
     func verifyOTP(with digits: [String]) async throws {

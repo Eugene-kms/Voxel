@@ -17,8 +17,6 @@ public final class OTPViewController: UIViewController {
     private weak var continueButton: UIButton!
     private var textFields: [UITextField] = []
     
-    var phoneNumber: String = ""
-    
     public var viewModel: OTPViewModel!
     
     public override func viewDidLoad() {
@@ -96,7 +94,7 @@ extension OTPViewController {
         let subtitle = UILabel()
         
         let attributedString = NSAttributedString(
-            string: OTPScreenStrings.subtitle.rawValue + "\n" + phoneNumber,
+            string: OTPScreenStrings.subtitle.rawValue + "\n" + viewModel.phoneNumber,
             attributes: [.kern: -0.41])
         
         subtitle.attributedText = attributedString

@@ -9,11 +9,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
     var container: Container!
+    var coordinator: AppCoordinator!
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         
         setupContainer()
         
@@ -22,38 +20,25 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         UINavigationController.styleVoxel()
         
-        let navigationController = UINavigationController(rootViewController: setupInitialViewController())
+        setupAppCoordinator()
+    }
+    
+    private func setupAppCoordinator() {
+        let navigationController = UINavigationController()
+        
+        let coordinator = AppCoordinator(
+            navigationController: navigationController,
+            container: container
+        )
+        
+        coordinator.start()
         
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
         
-        subscribeToLogin()
-        subscribeToLogout()
+        self.coordinator = coordinator
     }
     
-    private func setupInitialViewController() -> UIViewController {
-        let authService = AuthServiceLive()
-        
-        if authService.isAuthenticated {
-            return setupTabBar()
-        } else {
-            return setupPhoneNumberController()
-        }
-    }
-    
-    private func setupTabBar() -> UIViewController {
-        TabBarController(container: container)
-    }
-    
-    private func setupPhoneNumberController() -> UIViewController {
-        let authService = AuthServiceLive()
-        let viewModel = PhoneNumberViewModel(container: container)
-        
-        let phoneNumberController = PhoneNumberViewController()
-        phoneNumberController.viewModel = viewModel
-        return phoneNumberController
-    }
-
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
         // This occurs shortly after the scene enters the background, or when its session is discarded.
@@ -80,42 +65,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called as the scene transitions from the foreground to the background.
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
-    }
-
-
-}
-
-extension SceneDelegate {
-    
-    private func subscribeToLogin() {
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(didLoginSuccessfully),
-            name: Notification.Name(AppNotificaton.didLoginSuccessfully.rawValue),
-            object: nil)
-    }
-    
-    @objc private func didLoginSuccessfully() {
-        let navigationController = window?.rootViewController as? UINavigationController
-        navigationController?.setViewControllers([setupTabBar()], animated: true)
-    }
-}
-
-//MARK: Logout
-
-extension SceneDelegate {
-    
-    private func subscribeToLogout() {
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(didLogout),
-            name: Notification.Name(AppNotificaton.didLogout.rawValue),
-            object: nil)
-    }
-    
-    @objc private func didLogout() {
-        let navigationController = window?.rootViewController as? UINavigationController
-        navigationController?.setViewControllers([setupPhoneNumberController()], animated: true)
     }
 }
 

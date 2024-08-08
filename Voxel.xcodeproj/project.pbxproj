@@ -22,6 +22,7 @@
 		44C441FD2C3B30AD008ED9F8 /* IBMPlexSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44C441FC2C3B30AD008ED9F8 /* IBMPlexSans-SemiBold.ttf */; };
 		44C442152C419DB0008ED9F8 /* DesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 44C442142C419DB0008ED9F8 /* DesignSystem */; };
 		44C442202C443EE2008ED9F8 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 44C4421F2C443EE2008ED9F8 /* FirebaseAuth */; };
+		44EE00CD2C64E8EE0040C30A /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EE00CC2C64E8EE0040C30A /* AppCoordinator.swift */; };
 		44FEC4002C58F93B002B9785 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FEC3FF2C58F93B002B9785 /* DIContainer.swift */; };
 		44FEC4032C5915D2002B9785 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 44FEC4022C5915D2002B9785 /* Swinject */; };
 		44FEC4072C59164B002B9785 /* AppAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FEC4062C59164B002B9785 /* AppAssembly.swift */; };
@@ -54,6 +55,7 @@
 		446ACD862C387D87009F6426 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		446ACD8D2C387EE7009F6426 /* Modules */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Modules; sourceTree = "<group>"; };
 		44C441FC2C3B30AD008ED9F8 /* IBMPlexSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		44EE00CC2C64E8EE0040C30A /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		44FEC3FF2C58F93B002B9785 /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
 		44FEC4062C59164B002B9785 /* AppAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAssembly.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -140,6 +142,7 @@
 				444B18222C551EBD00962C2D /* GoogleService-Info.plist */,
 				446ACD862C387D87009F6426 /* Info.plist */,
 				44FEC4062C59164B002B9785 /* AppAssembly.swift */,
+				44EE00CC2C64E8EE0040C30A /* AppCoordinator.swift */,
 			);
 			path = Voxel;
 			sourceTree = "<group>";
@@ -237,6 +240,7 @@
 				44FEC4072C59164B002B9785 /* AppAssembly.swift in Sources */,
 				446ACD7B2C387D82009F6426 /* SceneDelegate.swift in Sources */,
 				4442B6A92C4D8CA80022C0CB /* Tab.swift in Sources */,
+				44EE00CD2C64E8EE0040C30A /* AppCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
