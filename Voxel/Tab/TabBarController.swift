@@ -58,15 +58,17 @@ class TabBarController: UITabBarController {
     }
     
     private func setupSettings() -> UIViewController {
+        let navigationController = UINavigationController()
+        let coordinator = SettingsCoordinator(
+            navigationController: navigationController,
+            container: container
+        )
         
-        let viewModel = SettingsViewModel(container: container)
-        let settings = SettingsViewController()
-        settings.viewModel = viewModel
+        coordinator.start()
         
-        let settingsNavContr = UINavigationController(rootViewController: settings)
-        settings.tabBarItem = Tab.settings.tabBarItem
-        settings.title = Tab.settings.tabBarItem.title
+        coordinator.rootViewController.tabBarItem = Tab.settings.tabBarItem
+        coordinator.rootViewController.title = Tab.settings.tabBarItem.title
         
-        return settingsNavContr
+        return navigationController
     }
 }

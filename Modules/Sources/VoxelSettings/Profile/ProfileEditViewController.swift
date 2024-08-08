@@ -106,7 +106,6 @@ extension ProfileEditViewController {
         Task {
             do {
                 try await viewModel.save()
-                navigationController?.popViewController(animated: true)
             } catch {
                 showError(error.localizedDescription)
             }
@@ -227,11 +226,25 @@ extension ProfileEditViewController: UITableViewDelegate {
     }
     
     private func didRequestLogout() {
-        let alert = UIAlertController(title: "Logout", message: "Do you really want to logout?", preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { [weak self] _ in
-            self?.didConfirmLogout()
-        }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        let alert = UIAlertController(
+            title: "Logout",
+            message: "Do you really want to logout?",
+            preferredStyle: .actionSheet
+        )
+        alert.addAction(UIAlertAction(
+            title: "Confirm",
+            style: .default,
+            handler: {
+                [weak self] _ in
+                self?.didConfirmLogout()
+            })
+        )
+        alert.addAction(
+            UIAlertAction(
+                title: "Cancel",
+                style: .cancel
+            )
+        )
         present(alert, animated: true)
     }
     
@@ -287,6 +300,7 @@ extension ProfileEditViewController: UIImagePickerControllerDelegate, UINavigati
     }
     
     public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
         if let selectedImage = info[.editedImage] as? UIImage {
             viewModel.selectedImage = selectedImage
             
@@ -301,7 +315,6 @@ extension ProfileEditViewController: UIImagePickerControllerDelegate, UINavigati
 extension ProfileEditViewController: UITextFieldDelegate {
     
     public func textFieldDidEndEditing(_ textField: UITextField) {
-        
         guard 
             let indexPath = tableView.indexPathForRow(at: textField.convert(textField.bounds.origin, to: tableView)),
             let row = Row(rawValue: indexPath.row)
