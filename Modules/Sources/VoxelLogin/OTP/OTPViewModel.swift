@@ -18,7 +18,7 @@ public final class OTPViewModel {
     
     func verifyOTP(with digits: [String]) async throws {
         
-        guard validate(digits: digits)  else {
+        guard digits.count == 6, validate(digits: digits)  else {
             throw OTPViewModelError.otpNoValid }
         
         let otp = combineToOTP(digits: digits)

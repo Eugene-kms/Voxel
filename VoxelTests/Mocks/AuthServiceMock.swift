@@ -1,4 +1,3 @@
-import Foundation
 import VoxelAuthentication
 
 class AuthServiceMock: AuthService {
@@ -13,6 +12,4 @@ class AuthServiceMock: AuthService {
     }
     
     func logout() throws {}
-    
-    
 }
