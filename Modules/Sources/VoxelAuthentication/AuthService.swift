@@ -10,6 +10,10 @@ enum UserDefaultKey: String {
 
 public struct User {
     public let uid: String
+    
+    public init(uid: String) {
+        self.uid = uid
+    }
 }
 
 public protocol AuthService {
