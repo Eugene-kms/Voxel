@@ -7,15 +7,16 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>app-1-924794791920-ios-c81718d31e505266329f35</string>
+				<string>app-1-1062974485084-ios-8e52167fc4e8f7ad266c99</string>
 			</array>
 		</dict>
 	</array>
 	<key>UIAppFonts</key>
 	<array>
-		<string>IBMPlexSerif-Bold.ttf</string>
 		<string>IBMPlexSans-Regular.ttf</string>
+		<string>IBMPlexSans-Bold.ttf</string>
 		<string>IBMPlexSans-SemiBold.ttf</string>
+		<string>IBMPlexSerif-Bold.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

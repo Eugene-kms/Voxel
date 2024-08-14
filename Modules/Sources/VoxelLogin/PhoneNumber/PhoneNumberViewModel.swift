@@ -6,24 +6,24 @@ public final class PhoneNumberViewModel {
     private var authService: AuthService {
         container.resolve(AuthService.self)!
     }
-    
+
     private let container: Container
     private let coordinator: PhoneNumberCoordinator
-    
+
     public init(container: Container, coordinator: PhoneNumberCoordinator) {
         self.container = container
         self.coordinator = coordinator
     }
-    
+
     public func requestOTP(with phoneNumber: String) async throws {
         try await authService.requestOTP(forPhoneNumber: phoneNumber)
-        
+
         await MainActor.run {
-            didRequestOTPSuccessfuly(with: phoneNumber)
+            didRequestOTPSuccessfully(with: phoneNumber)
         }
     }
-    
-    private func didRequestOTPSuccessfuly(with phoneNumber: String) {
+
+    private func didRequestOTPSuccessfully(with phoneNumber: String) {
         coordinator.presentOTP(with: phoneNumber)
     }
 }

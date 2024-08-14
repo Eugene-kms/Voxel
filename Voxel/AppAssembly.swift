@@ -1,17 +1,17 @@
 import Foundation
 import Swinject
-import VoxelSettings
 import VoxelAuthentication
+import VoxelSettings
 import VoxelLogin
 
 class AppAssembly {
-    
+
     let container: Container
-    
+
     init(container: Container) {
         self.container = container
     }
-    
+
     func asemble() {
         let authService = AuthServiceLive()
         let userRepository = UserProfileRepositoryLive(authService: authService)
@@ -19,16 +19,17 @@ class AppAssembly {
             authService: authService,
             userProfileRepository: userRepository
         )
+
         container.register(AuthService.self) { container in
-            return authService
+            authService
         }
-        
+
         container.register(UserProfileRepository.self) { container in
-            return userRepository
+            userRepository
         }
-        
+
         container.register(ProfilePictureRepository.self) { container in
-            return profilePictureRepository
+            profilePictureRepository
         }
     }
 }

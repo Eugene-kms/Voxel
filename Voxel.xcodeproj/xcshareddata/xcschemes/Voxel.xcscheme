@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1540"
+   LastUpgradeVersion = "1530"
    version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -15,7 +15,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "446ACD742C387D82009F6426"
+               BlueprintIdentifier = "669150302C257C31002061CA"
                BuildableName = "Voxel.app"
                BlueprintName = "Voxel"
                ReferencedContainer = "container:Voxel.xcodeproj">
@@ -27,15 +27,19 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES"
-      shouldAutocreateTestPlan = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES">
+      <TestPlans>
+         <TestPlanReference
+            reference = "container:Voxel.xctestplan"
+            default = "YES">
+         </TestPlanReference>
+      </TestPlans>
       <Testables>
          <TestableReference
-            skipped = "NO"
-            parallelizable = "YES">
+            skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "449B30072C6A207000D3F05B"
+               BlueprintIdentifier = "66B554C42C49549A007ED570"
                BuildableName = "VoxelTests.xctest"
                BlueprintName = "VoxelTests"
                ReferencedContainer = "container:Voxel.xcodeproj">
@@ -57,7 +61,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "446ACD742C387D82009F6426"
+            BlueprintIdentifier = "669150302C257C31002061CA"
             BuildableName = "Voxel.app"
             BlueprintName = "Voxel"
             ReferencedContainer = "container:Voxel.xcodeproj">
@@ -74,7 +78,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "446ACD742C387D82009F6426"
+            BlueprintIdentifier = "669150302C257C31002061CA"
             BuildableName = "Voxel.app"
             BlueprintName = "Voxel"
             ReferencedContainer = "container:Voxel.xcodeproj">

@@ -3,17 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>API_KEY</key>
-	<string>AIzaSyAAtLQuwzbeIiICRB8dKSXimRe_QfH3iRI</string>
+	<string>AIzaSyB3iBvshnOUsBC0XIromXlb_7a2fHyPwhI</string>
 	<key>GCM_SENDER_ID</key>
-	<string>924794791920</string>
+	<string>1062974485084</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>Eugene.Voxel</string>
+	<string>com.mobileappcoaching.voxel</string>
 	<key>PROJECT_ID</key>
-	<string>voxel-e206e</string>
+	<string>voxel-6cb1d</string>
 	<key>STORAGE_BUCKET</key>
-	<string>voxel-e206e.appspot.com</string>
+	<string>voxel-6cb1d.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -25,8 +25,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:924794791920:ios:c81718d31e505266329f35</string>
+	<string>1:1062974485084:ios:8e52167fc4e8f7ad266c99</string>
 	<key>DATABASE_URL</key>
-	<string>https://voxel-e206e-default-rtdb.europe-west1.firebasedatabase.app</string>
+	<string>https://voxel-6cb1d-default-rtdb.europe-west1.firebasedatabase.app</string>
 </dict>
 </plist>
