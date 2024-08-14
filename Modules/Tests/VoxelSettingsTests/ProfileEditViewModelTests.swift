@@ -6,7 +6,7 @@ import VoxelMocks
 @testable import VoxelSettings
 
 class ProfileEditCoordinatorMock: ProfileEditCoordinator {
-    var didDismiss: Int = 1
+    var didDismiss: Int = 0
     
     func start() {}
     
