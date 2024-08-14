@@ -2,7 +2,11 @@ import UIKit
 import VoxelCore
 import Swinject
 
-class ProfileEditCoordinator: Coordinator {
+protocol ProfileEditCoordinator: Coordinator {
+    func dismiss()
+}
+
+class ProfileEditCoordinatorLive: ProfileEditCoordinator {
     
     private let navigationController: UINavigationController
     private let container: Container
@@ -13,7 +17,10 @@ class ProfileEditCoordinator: Coordinator {
     }
     
     func start() {
-        let viewModel = ProfileEditViewModel(container: container, coordinator: self)
+        let viewModel = ProfileEditViewModel(
+            container: container,
+            coordinator: self
+        )
         let controller = ProfileEditViewController()
         controller.viewModel = viewModel
         navigationController.pushViewController(controller, animated: true)

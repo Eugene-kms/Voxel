@@ -103,6 +103,14 @@ let package = Package(
                     name: "FirebaseStorage",
                     package: "firebase-ios-sdk")],
             resources: [
-                .process("Resources")])
+                .process("Resources")]),
+        
+            .testTarget(
+                name: "VoxelSettingsTests",
+                dependencies: [
+                    "VoxelMocks",
+                    "VoxelSettings"
+                ]
+            )
     ]
 )
