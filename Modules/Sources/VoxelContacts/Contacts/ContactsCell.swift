@@ -1,5 +1,6 @@
 import UIKit
 import SnapKit
+import SDWebImage
 import DesignSystem
 import VoxelCore
 
@@ -49,10 +50,9 @@ class ContactCell: UITableViewCell {
 
         profileImageView.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(16)
-            make.centerY.equalToSuperview()
             make.width.height.equalTo(40)
             make.top.equalToSuperview().offset(8)
-            make.bottom.equalToSuperview().offset(-8)
+            make.bottom.equalToSuperview().offset(-8).priority(.medium)
         }
 
         nameLabel.snp.makeConstraints { make in
@@ -63,7 +63,18 @@ class ContactCell: UITableViewCell {
 
     func configure(with contact: Contact) {
         profileImageView.image = .avatar
+        
         nameLabel.text = contact.name
+        
+        if let url = contact.profilePictureURL {
+            profileImageView.sd_setImage(with: url)
+        }
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        profileImageView.sd_cancelCurrentImageLoad()
     }
 
     func configureCellCorners(corners: UIRectCorner) {

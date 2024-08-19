@@ -63,8 +63,17 @@ class ContactInfoCell: UITableViewCell {
     }
 
     func configure(with contact: Contact) {
-        profileImageView.image = .avatar
         nameLabel.text = contact.name
         phoneLabel.text = contact.phoneNumber
+        
+        if let url = contact.profilePictureURL {
+            profileImageView.sd_setImage(with: url)
+        }
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        profileImageView.sd_cancelCurrentImageLoad()
     }
 }

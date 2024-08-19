@@ -65,6 +65,7 @@ let package = Package(
                 "VoxelSettings",
                 "Swinject",
                 "SnapKit",
+                "SDWebImage",
                 "PhoneNumberKit",
                 .product(name: "FirebaseAuth", package: "firebase-ios-sdk"),
                 .product(name: "FirebaseDatabase", package: "firebase-ios-sdk")

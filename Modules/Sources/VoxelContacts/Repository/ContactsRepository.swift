@@ -4,18 +4,11 @@ import VoxelAuthentication
 import VoxelSettings
 import Swinject
 
-public struct Contact {
-    public let uid: String
-    public let name: String
-    public var phoneNumber: String {
-        userProfile.phoneNumber
-    }
-    public let userProfile: UserProfile
-}
-
 public protocol ContactsRepository {
     func fetch() async throws -> [Contact]
     func addContact(withPhoneNumber phoneNumber: String, fullName: String) async throws
+    func updateContact(_ contact: Contact, with fullName: String) async throws
+    func fetchContact(with uid: String) async throws -> Contact
 }
 
 enum ContactsRepositoryError: Error {
@@ -31,16 +24,13 @@ public class ContactsRepositoryLive: ContactsRepository {
     private let reference: DatabaseReference
     private let phoneNumberReference: DatabaseReference
     private let userReference: DatabaseReference
-    private let container: Container
-    private var authService: AuthService {
-        container.resolve(AuthService.self)!
-    }
+    private let authService: AuthService
     
     public init(container: Container) {
-        self.container = container
         reference = Database.database().reference().child("contacts")
         phoneNumberReference = Database.database().reference().child(DatabaseBranch.phoneNumbers.rawValue)
         userReference = Database.database().reference().child("users")
+        authService = container.resolve(AuthService.self)!
     }
     
     public func fetch() async throws -> [Contact] {
@@ -57,11 +47,13 @@ public class ContactsRepositoryLive: ContactsRepository {
         try await withThrowingTaskGroup(of: Contact.self) { [unowned self] group in
             for (contactUid, contactRel) in contacts {
                 group.addTask {
-                    let profile = try await self.fetchContact(with: contactUid)
+                    let profile = try await self.fetchProfile(with: contactUid)
+                    let isMutual = try await self.isContactMutual(contactUid)
                     return Contact(
                         uid: contactUid,
                         name: contactRel.name,
-                        userProfile: profile
+                        userProfile: profile, 
+                        isMutual: isMutual
                     )
                 }
             }
@@ -74,9 +66,34 @@ public class ContactsRepositoryLive: ContactsRepository {
         return contactsArray
     }
     
-    private func fetchContact(with uid: String) async throws -> UserProfile {
+    private func fetchProfile(with uid: String) async throws -> UserProfile {
         let snapshot = try await userReference.child(uid).getData()
         return try snapshot.data(as: UserProfile.self)
+    }
+    
+    public func fetchContact(with uid: String) async throws -> Contact {
+        guard let user = authService.user else {
+            throw AuthError.notAuthenticated
+        }
+        let profile = try await fetchProfile(with: uid)
+        let snapshot = try await reference.child(user.uid).child(uid).getData()
+        let contactRel = try snapshot.data(as: ContactRelationship.self)
+        let isMutual = try await isContactMutual(uid)
+        
+        return Contact(
+            uid: uid,
+            name: contactRel.name,
+            userProfile: profile,
+            isMutual: isMutual
+        )
+    }
+    
+    private func isContactMutual(_ uid: String) async throws -> Bool {
+        guard let user = authService.user else {
+            throw AuthError.notAuthenticated
+        }
+        let snapshot = try await  reference.child(uid).child(user.uid).getData()
+        return snapshot.exists()
     }
     
     public func addContact(withPhoneNumber phoneNumber: String, fullName: String) async throws {
@@ -94,5 +111,14 @@ public class ContactsRepositoryLive: ContactsRepository {
         try await reference.child(user.uid).child(contactUserId).setValue([
             "name": fullName
         ])
+    }
+    
+    public func updateContact(_ contact: Contact, with fullName: String) async throws {
+        
+        guard let user = authService.user else {
+            throw AuthError.noVerificationId
+        }
+        
+        try await  reference.child(user.uid).child(contact.uid).child("name").setValue(fullName)
     }
 }
