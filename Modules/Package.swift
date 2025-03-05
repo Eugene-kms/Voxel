@@ -13,22 +13,35 @@ let package = Package(
             .library(
                 name: "VoxelAuthentication",
                 targets: ["VoxelAuthentication"]),
+            .library(
+                name: "VoxelCore",
+                targets: ["VoxelCore"]),
         
             .library(
                 name: "VoxelLogin",
-                targets: ["VoxelLogin"])
+                targets: ["VoxelLogin"]),
+            
+            .library(
+                name: "VoxelSettings",
+                targets: ["VoxelSettings"])
     ],
     
     dependencies: [
+        .package(url: "https://github.com/firebase/firebase-ios-sdk.git", exact: "10.29.0"),
+        .package(url: "https://github.com/airbnb/lottie-spm.git", from: "4.5.0"),
         .package(url: "https://github.com/marmelroy/PhoneNumberKit", from: "3.7.0"),
-        .package(url: "https://github.com/SnapKit/SnapKit.git", .upToNextMajor(from: "5.0.1")),
-        .package(url: "https://github.com/firebase/firebase-ios-sdk.git", exact: "10.29.0")
+        .package(url: "https://github.com/SnapKit/SnapKit.git", .upToNextMajor(from: "5.0.1"))
     ],
     
     targets: [
-        
         .target(
             name: "DesignSystem",
+            dependencies: [
+                .product(
+                    name: "Lottie",
+                    package: "lottie-spm"),
+                "SnapKit"
+            ],
             resources: [
                 .process("Resources")
             ]
@@ -40,13 +53,24 @@ let package = Package(
                     name: "FirebaseAuth",
                     package: "firebase-ios-sdk")]),
         
+        .target(name: "VoxelCore"),
+        
         .target(
             name: "VoxelLogin",
             dependencies: [
                 "DesignSystem",
                 "VoxelAuthentication",
+                "VoxelCore",
                 "SnapKit",
                 "PhoneNumberKit"],
+            resources: [
+                .process("Resources")]),
+        
+        .target(name: "VoxelSettings",
+            dependencies: [
+                "DesignSystem",
+                "VoxelCore",
+                "SnapKit"],
             resources: [
                 .process("Resources")])
     ]
