@@ -19,6 +19,8 @@
 		446ACD7B2C387D82009F6426 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446ACD7A2C387D82009F6426 /* SceneDelegate.swift */; };
 		446ACD822C387D87009F6426 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 446ACD812C387D87009F6426 /* Assets.xcassets */; };
 		446ACD852C387D87009F6426 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 446ACD842C387D87009F6426 /* Base */; };
+		449B300B2C6A207000D3F05B /* AppCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449B300A2C6A207000D3F05B /* AppCoordinatorTests.swift */; };
+		449B30132C6A261E00D3F05B /* AuthServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449B30122C6A261E00D3F05B /* AuthServiceMock.swift */; };
 		44C441FD2C3B30AD008ED9F8 /* IBMPlexSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44C441FC2C3B30AD008ED9F8 /* IBMPlexSans-SemiBold.ttf */; };
 		44C442152C419DB0008ED9F8 /* DesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 44C442142C419DB0008ED9F8 /* DesignSystem */; };
 		44C442202C443EE2008ED9F8 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 44C4421F2C443EE2008ED9F8 /* FirebaseAuth */; };
@@ -27,6 +29,16 @@
 		44FEC4032C5915D2002B9785 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 44FEC4022C5915D2002B9785 /* Swinject */; };
 		44FEC4072C59164B002B9785 /* AppAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FEC4062C59164B002B9785 /* AppAssembly.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		449B300C2C6A207000D3F05B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 446ACD6D2C387D82009F6426 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 446ACD742C387D82009F6426;
+			remoteInfo = Voxel;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		44FEC4092C597DB7002B9785 /* Embed Frameworks */ = {
@@ -54,6 +66,9 @@
 		446ACD842C387D87009F6426 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		446ACD862C387D87009F6426 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		446ACD8D2C387EE7009F6426 /* Modules */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Modules; sourceTree = "<group>"; };
+		449B30082C6A207000D3F05B /* VoxelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VoxelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		449B300A2C6A207000D3F05B /* AppCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinatorTests.swift; sourceTree = "<group>"; };
+		449B30122C6A261E00D3F05B /* AuthServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceMock.swift; sourceTree = "<group>"; };
 		44C441FC2C3B30AD008ED9F8 /* IBMPlexSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-SemiBold.ttf"; sourceTree = "<group>"; };
 		44EE00CC2C64E8EE0040C30A /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		44FEC3FF2C58F93B002B9785 /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
@@ -71,6 +86,13 @@
 				44C442202C443EE2008ED9F8 /* FirebaseAuth in Frameworks */,
 				44C442152C419DB0008ED9F8 /* DesignSystem in Frameworks */,
 				44FEC4032C5915D2002B9785 /* Swinject in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		449B30052C6A207000D3F05B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,6 +139,7 @@
 			children = (
 				446ACD8D2C387EE7009F6426 /* Modules */,
 				446ACD772C387D82009F6426 /* Voxel */,
+				449B30092C6A207000D3F05B /* VoxelTests */,
 				446ACD762C387D82009F6426 /* Products */,
 				44416C322C3AAF5900BCF49B /* Frameworks */,
 			);
@@ -126,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				446ACD752C387D82009F6426 /* Voxel.app */,
+				449B30082C6A207000D3F05B /* VoxelTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -145,6 +169,23 @@
 				44EE00CC2C64E8EE0040C30A /* AppCoordinator.swift */,
 			);
 			path = Voxel;
+			sourceTree = "<group>";
+		};
+		449B30092C6A207000D3F05B /* VoxelTests */ = {
+			isa = PBXGroup;
+			children = (
+				449B30112C6A25EC00D3F05B /* Mocks */,
+				449B300A2C6A207000D3F05B /* AppCoordinatorTests.swift */,
+			);
+			path = VoxelTests;
+			sourceTree = "<group>";
+		};
+		449B30112C6A25EC00D3F05B /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				449B30122C6A261E00D3F05B /* AuthServiceMock.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,6 +217,24 @@
 			productReference = 446ACD752C387D82009F6426 /* Voxel.app */;
 			productType = "com.apple.product-type.application";
 		};
+		449B30072C6A207000D3F05B /* VoxelTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 449B30102C6A207000D3F05B /* Build configuration list for PBXNativeTarget "VoxelTests" */;
+			buildPhases = (
+				449B30042C6A207000D3F05B /* Sources */,
+				449B30052C6A207000D3F05B /* Frameworks */,
+				449B30062C6A207000D3F05B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				449B300D2C6A207000D3F05B /* PBXTargetDependency */,
+			);
+			name = VoxelTests;
+			productName = VoxelTests;
+			productReference = 449B30082C6A207000D3F05B /* VoxelTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -188,6 +247,10 @@
 				TargetAttributes = {
 					446ACD742C387D82009F6426 = {
 						CreatedOnToolsVersion = 15.4;
+					};
+					449B30072C6A207000D3F05B = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 446ACD742C387D82009F6426;
 					};
 				};
 			};
@@ -209,6 +272,7 @@
 			projectRoot = "";
 			targets = (
 				446ACD742C387D82009F6426 /* Voxel */,
+				449B30072C6A207000D3F05B /* VoxelTests */,
 			);
 		};
 /* End PBXProject section */
@@ -224,6 +288,13 @@
 				44416C382C3AEC1E00BCF49B /* IBMPlexSerif-Bold.ttf in Resources */,
 				446ACD852C387D87009F6426 /* Base in Resources */,
 				444B18232C551EBE00962C2D /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		449B30062C6A207000D3F05B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,7 +315,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		449B30042C6A207000D3F05B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				449B300B2C6A207000D3F05B /* AppCoordinatorTests.swift in Sources */,
+				449B30132C6A261E00D3F05B /* AuthServiceMock.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		449B300D2C6A207000D3F05B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 446ACD742C387D82009F6426 /* Voxel */;
+			targetProxy = 449B300C2C6A207000D3F05B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		446ACD832C387D87009F6426 /* LaunchScreen.storyboard */ = {
@@ -399,6 +487,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Eugene.Voxel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -427,9 +518,46 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Eugene.Voxel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		449B300E2C6A207000D3F05B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Eugene.VoxelTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Voxel.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Voxel";
+			};
+			name = Debug;
+		};
+		449B300F2C6A207000D3F05B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Eugene.VoxelTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Voxel.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Voxel";
 			};
 			name = Release;
 		};
@@ -450,6 +578,15 @@
 			buildConfigurations = (
 				446ACD8A2C387D87009F6426 /* Debug */,
 				446ACD8B2C387D87009F6426 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		449B30102C6A207000D3F05B /* Build configuration list for PBXNativeTarget "VoxelTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				449B300E2C6A207000D3F05B /* Debug */,
+				449B300F2C6A207000D3F05B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

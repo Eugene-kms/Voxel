@@ -22,6 +22,10 @@ let package = Package(
                 targets: ["VoxelLogin"]),
             
             .library(
+                name: "VoxelMocks",
+                targets: ["VoxelMocks"]),
+            
+            .library(
                 name: "VoxelSettings",
                 targets: ["VoxelSettings"])
     ],
@@ -49,11 +53,12 @@ let package = Package(
             ]
         ),
         
-        .target(name: "VoxelAuthentication",
-                dependencies: [
-                .product(
-                    name: "FirebaseAuth",
-                    package: "firebase-ios-sdk")]),
+        .target(
+            name: "VoxelAuthentication",
+            dependencies: [
+            .product(
+                name: "FirebaseAuth",
+                package: "firebase-ios-sdk")]),
         
         .target(name: "VoxelCore"),
         
@@ -69,7 +74,21 @@ let package = Package(
             resources: [
                 .process("Resources")]),
         
-        .target(name: "VoxelSettings",
+        .testTarget(
+            name: "VoxelLoginTests",
+            dependencies: [
+                "VoxelLogin",
+                "VoxelMocks"
+            ]
+        ),
+        
+        .target(
+            name: "VoxelMocks",
+            dependencies: ["VoxelAuthentication"]
+        ),
+        
+        .target(
+            name: "VoxelSettings",
             dependencies: [
                 "DesignSystem",
                 "VoxelAuthentication",
@@ -84,6 +103,14 @@ let package = Package(
                     name: "FirebaseStorage",
                     package: "firebase-ios-sdk")],
             resources: [
-                .process("Resources")])
+                .process("Resources")]),
+        
+            .testTarget(
+                name: "VoxelSettingsTests",
+                dependencies: [
+                    "VoxelMocks",
+                    "VoxelSettings"
+                ]
+            )
     ]
 )

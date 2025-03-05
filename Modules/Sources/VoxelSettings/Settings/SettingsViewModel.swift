@@ -37,18 +37,11 @@ public final class SettingsViewModel {
         coordinator.presentProfileEdit()
     }
     
-    func fetchUserProfile() {
+    func fetchUserProfile() async throws {
+        let profile = try await userRepository.fetchUserProfile()
         
-        Task { [weak self] in
-            do {
-                guard let profile = try await self?.userRepository.fetchUserProfile() else { return }
-                
-                await MainActor.run { [weak self] in
-                    self?.updateHeader(with: profile)
-                }
-            } catch {
-                print(error)
-            }
+        await MainActor.run { [weak self] in
+            self?.updateHeader(with: profile)
         }
     }
     

@@ -2,7 +2,11 @@ import UIKit
 import VoxelCore
 import Swinject
 
-public class PhoneNumberCoordinator: Coordinator {
+public protocol PhoneNumberCoordinator: Coordinator {
+    func presentOTP(with phoneNumber: String)
+}
+
+public class PhoneNumberCoordinatorLive: PhoneNumberCoordinator {
     
     private let navigationController: UINavigationController
     private let container: Container
@@ -23,7 +27,7 @@ public class PhoneNumberCoordinator: Coordinator {
         navigationController.setViewControllers([controller], animated: true)
     }
     
-    func presentOTP(with phoneNumber: String) {
+    public func presentOTP(with phoneNumber: String) {
         
         let coordintor = OTPCoordinator(
             navigationController: navigationController,
