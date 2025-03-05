@@ -23,4 +23,8 @@ public extension UIFont {
     static var button: UIFont {
         UIFont(name: Fonts.iBMPlexSansSemiBold.rawValue, size: 17)!
     }
+    
+    static var otp: UIFont {
+        UIFont(name: Fonts.iBMPlexSansSemiBold.rawValue, size: 17)!
+    }
 }

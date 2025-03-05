@@ -1,7 +1,8 @@
 import UIKit
+import DesignSystem
+import VoxelAuthentication
 import PhoneNumberKit
 import SnapKit
-import DesignSystem
 
 enum PhoneNumberStrings: String {
     case title = "Enter your phone number"
@@ -9,11 +10,25 @@ enum PhoneNumberStrings: String {
     case continueButton = "Continue"
 }
 
-public class PhoneNumberViewController: UIViewController {
+public final class PhoneNumberViewModel {
+    var authService: AuthService
+    
+    public init(authService: AuthService) {
+        self.authService = authService
+    }
+    
+    public func requestOTP(with phoneNumber: String) async throws {
+        try await authService.requestOTP(forPhoneNumber: phoneNumber)
+    }
+}
+
+public final class PhoneNumberViewController: UIViewController {
     
     private weak var stackView: UIStackView!
     private weak var textField: PhoneNumberTextField!
     private weak var continueButton: UIButton!
+    
+    public var viewModel: PhoneNumberViewModel!
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +51,7 @@ public class PhoneNumberViewController: UIViewController {
     
     private func setupUI() {
         
-        view.backgroundColor = UIColor(resource: .background)
+        view.backgroundColor = .background
         
         setupStackView()
         setupIcon()
@@ -87,13 +102,14 @@ public class PhoneNumberViewController: UIViewController {
         title.font = .title
         title.numberOfLines = 0
         title.textAlignment = .center
-        title.textColor = UIColor(resource: .text)
+        title.textColor = .text
         
         stackView.addArrangedSubview(title)
     }
     
     private func setupSubtitle() {
         let subtitle = UILabel()
+        
         let attributedString = NSAttributedString(
             string: PhoneNumberStrings.subtitle.rawValue,
             attributes: [.kern: -0.41])
@@ -102,7 +118,7 @@ public class PhoneNumberViewController: UIViewController {
         subtitle.font = .subtitle
         subtitle.numberOfLines = 0
         subtitle.textAlignment = .center
-        subtitle.textColor = UIColor(resource: .text)
+        subtitle.textColor = .text
         
         stackView.addArrangedSubview(subtitle)
     }
@@ -127,7 +143,7 @@ public class PhoneNumberViewController: UIViewController {
         textField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         textField.withFlag = true
         textField.font = .textField
-        textField.textColor = UIColor(resource: .text)
+        textField.textColor = .text
         textField.withExamplePlaceholder = true
         textField.attributedPlaceholder = NSAttributedString(string: "Enter phone number")
         
@@ -144,7 +160,7 @@ public class PhoneNumberViewController: UIViewController {
     
     private func setupContinueButton() {
         let button = UIButton()
-        button.backgroundColor = UIColor(resource: .accent)
+        button.backgroundColor = .accent
         button.titleLabel?.font = .button
         button.setTitle(PhoneNumberStrings.continueButton.rawValue, for: .normal)
         button.layer.cornerRadius = 8
@@ -172,9 +188,34 @@ extension PhoneNumberViewController {
 
 extension PhoneNumberViewController {
     
-    @objc func didTapContinue() {
-        print("Did tap continue!")
+    @objc func didTapContinue() async {
+        
+        guard textField.isValidNumber, let phoneNumber = textField.text else { return }
+        
+        Task { [weak self] in
+            do {
+                try await self?.viewModel.requestOTP(with: phoneNumber)
+                
+                self?.presentOTP()
+            } catch {
+                self?.showError(error.localizedDescription)
+            }
+        }
+    }
+    
+    private func presentOTP() {
+        let viewController = OTPViewController()
+        viewController.viewModel = OTPViewModel(authService: viewModel.authService)
+        viewController.phoneNumber = textField.text ?? ""
+        
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }
 
-
+extension UIViewController {
+    func showError(_ error: String) {
+        let alert = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default))
+        self.present(alert, animated: true)
+    }
+}
