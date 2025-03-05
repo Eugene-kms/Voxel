@@ -3,38 +3,39 @@ import VoxelAuthentication
 import Swinject
 
 enum OTPViewModelError: Error {
-    case otpNoValid
+    case otpNotValid
 }
 
 public final class OTPViewModel {
-    
+
     private var authService: AuthService
+
     let phoneNumber: String
-    
+
     init(container: Container, phoneNumber: String) {
         self.authService = container.resolve(AuthService.self)!
         self.phoneNumber = phoneNumber
     }
-    
+
     func verifyOTP(with digits: [String]) async throws {
-        
-        guard digits.count == 6, validate(digits: digits)  else {
-            throw OTPViewModelError.otpNoValid }
-        
+        guard digits.count == 6, validate(digits: digits) else {
+            throw OTPViewModelError.otpNotValid
+        }
+
         let otp = combineToOTP(digits: digits)
-        
+
         let user = try await authService.authenticate(withOTP: otp)
         print(user.uid)
     }
-    
+
     private func validate(digits: [String]) -> Bool {
-        
         for digit in digits {
-            guard digit.isNumber else { return false }
+            guard digit.isValidDigit else { return false }
         }
+
         return true
     }
-    
+
     private func combineToOTP(digits: [String]) -> String {
         digits.joined()
     }

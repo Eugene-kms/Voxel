@@ -13,9 +13,10 @@
 	</array>
 	<key>UIAppFonts</key>
 	<array>
-		<string>IBMPlexSerif-Bold.ttf</string>
 		<string>IBMPlexSans-Regular.ttf</string>
+		<string>IBMPlexSans-Bold.ttf</string>
 		<string>IBMPlexSans-SemiBold.ttf</string>
+		<string>IBMPlexSerif-Bold.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

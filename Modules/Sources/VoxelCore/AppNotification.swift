@@ -6,9 +6,9 @@ public enum AppNotification: String {
 }
 
 public extension NotificationCenter {
-    
     func post(_ appNotification: AppNotification) {
         NotificationCenter.default.post(
-            Notification(name: Notification.Name(appNotification.rawValue)))
+            Notification(name: Notification.Name(appNotification.rawValue))
+        )
     }
 }
