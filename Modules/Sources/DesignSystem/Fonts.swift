@@ -24,8 +24,20 @@ public extension UIFont {
         UIFont(name: Fonts.iBMPlexSansRegular.rawValue, size: 15)!
     }
     
+    static var title3: UIFont {
+        UIFont(name: Fonts.iBMPlexSansSemiBold.rawValue, size: 13)!
+    }
+    
     static var textField: UIFont {
         UIFont(name: Fonts.iBMPlexSansRegular.rawValue, size: 17)!
+    }
+    
+    static var paragraph: UIFont {
+        UIFont(name: Fonts.iBMPlexSansRegular.rawValue, size: 17)!
+    }
+    
+    static var footer: UIFont {
+        UIFont(name: Fonts.iBMPlexSansRegular.rawValue, size: 13)!
     }
     
     static var button: UIFont {

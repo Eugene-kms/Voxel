@@ -1,5 +1,6 @@
 import UIKit
 import DesignSystem
+import VoxelCore
 import VoxelAuthentication
 import PhoneNumberKit
 import SnapKit
@@ -8,18 +9,6 @@ enum PhoneNumberStrings: String {
     case title = "Enter your phone number"
     case subtitle = "What a phone number can people use to reach you?"
     case continueButton = "Continue"
-}
-
-public final class PhoneNumberViewModel {
-    var authService: AuthService
-    
-    public init(authService: AuthService) {
-        self.authService = authService
-    }
-    
-    public func requestOTP(with phoneNumber: String) async throws {
-        try await authService.requestOTP(forPhoneNumber: phoneNumber)
-    }
 }
 
 public final class PhoneNumberViewController: UIViewController {
@@ -205,17 +194,9 @@ extension PhoneNumberViewController {
     
     private func presentOTP() {
         let viewController = OTPViewController()
-        viewController.viewModel = OTPViewModel(authService: viewModel.authService)
+        viewController.viewModel = OTPViewModel(container: viewModel.container)
         viewController.phoneNumber = textField.text ?? ""
         
         navigationController?.pushViewController(viewController, animated: true)
-    }
-}
-
-extension UIViewController {
-    func showError(_ error: String) {
-        let alert = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .default))
-        self.present(alert, animated: true)
     }
 }

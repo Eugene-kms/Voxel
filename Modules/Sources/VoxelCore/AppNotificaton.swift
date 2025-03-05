@@ -2,6 +2,7 @@ import Foundation
 
 public enum AppNotificaton: String {
     case didLoginSuccessfully
+    case didLogout
 }
 
 public extension NotificationCenter {

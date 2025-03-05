@@ -6,13 +6,23 @@ public final class SettingsViewController: UIViewController {
     
     private weak var tableView: UITableView!
     
-    let viewModel = SettingsViewModel()
+    public var viewModel: SettingsViewModel!
     
     public override func viewDidLoad() {
         super.viewDidLoad()
         
         setupUI()
         configureTableView()
+        
+        viewModel.didUpdateHeader = { [weak self] in
+            self?.tableView.reloadData()
+        }
+    }
+    
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        viewModel.fetchUserProfile()
     }
     
     private func configureTableView() {
@@ -33,6 +43,7 @@ extension SettingsViewController {
     private func setupNavigationTitle() {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.largeTitleTextAttributes = [.font: UIFont.title]
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
     }
     
     private func setupTableView() {
@@ -70,5 +81,16 @@ extension SettingsViewController: UITableViewDelegate {
     
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 96
+    }
+    
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presentProfileEdit()
+    }
+    
+    private func presentProfileEdit() {
+        let viewModel = ProfileEditViewModel(container: viewModel.container)
+        let controller = ProfileEditViewController()
+        controller.viewModel = viewModel
+        navigationController?.pushViewController(controller, animated: true)
     }
 }
